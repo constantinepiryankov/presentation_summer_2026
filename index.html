@@ -222,7 +222,16 @@
     ul.panel,
     ol.panel {
       padding: var(--box-padding);
-      list-style-position: inside;
+      padding-left: calc(var(--box-padding) + 1.35em);
+      list-style-position: outside;
+    }
+
+    ul.panel li::marker,
+    ol.panel li::marker {
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 1em;
+      font-weight: 400;
     }
 
     .panel ul,
@@ -297,6 +306,31 @@
       font-size: 20px;
       line-height: 1.22;
       font-weight: 700;
+    }
+
+    .metric-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .metric-table th,
+    .metric-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: clamp(17px, 1.45vw, 21px);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .metric-table th {
+      color: #0f3d3a;
+      background: #e9fbf8;
+      font-weight: 850;
+    }
+
+    .metric-table tr:last-child td {
+      border-bottom: 0;
     }
 
     .checklist {
@@ -542,16 +576,18 @@
       <video src="../resources/annotations/clip_001.h264.mp4" autoplay muted loop playsinline></video>
       <header>
         <div class="eyebrow">Summer School Project</div>
-        <div class="slide-number">01 / 14</div>
+        <div class="slide-number">01 / 15</div>
       </header>
       <main>
         <div>
           <h1>Computer Vision Event Detection</h1>
           <p class="lead">Detecting pickup and putdown events in store videos.</p>
           <div class="meta">
-            <span class="tag">Team name / members</span>
-            <span class="tag">Store video clips</span>
-            <span class="tag">Event label + time</span>
+            <span class="tag">Lyubomir Angelov</span>
+            <span class="tag">Todor Grozlekov</span>
+            <span class="tag">Galya Ayamalieva</span>
+            <span class="tag">Marieta Marinova</span>
+            <span class="tag">Konstantin Piryankov</span>
           </div>
         </div>
       </main>
@@ -560,7 +596,7 @@
     </section>
 
     <section class="slide">
-      <header><div class="eyebrow">The Problem</div><div class="slide-number">02 / 14</div></header>
+      <header><div class="eyebrow">The Problem</div><div class="slide-number">02 / 15</div></header>
       <main>
         <h2>What are we trying to detect?</h2>
         <div class="grid-2">
@@ -593,7 +629,7 @@
     </section>
 
     <section class="slide">
-      <header><div class="eyebrow">Why It Matters</div><div class="slide-number">03 / 14</div></header>
+      <header><div class="eyebrow">Why It Matters</div><div class="slide-number">03 / 15</div></header>
       <main>
         <h2>Small actions can become useful signals</h2>
         <div class="stat-grid">
@@ -607,7 +643,7 @@
     </section>
 
     <section class="slide">
-      <header><div class="eyebrow">Event Definitions</div><div class="slide-number">04 / 14</div></header>
+      <header><div class="eyebrow">Event Definitions</div><div class="slide-number">04 / 15</div></header>
       <main>
         <h2>What counts as an event?</h2>
         <div class="grid-2">
@@ -636,7 +672,7 @@
     </section>
 
     <section class="slide">
-      <header><div class="eyebrow">Difficulty</div><div class="slide-number">05 / 14</div></header>
+      <header><div class="eyebrow">Difficulty</div><div class="slide-number">05 / 15</div></header>
       <main>
         <h2>Real videos are messy</h2>
         <div class="grid-2">
@@ -656,7 +692,7 @@
     </section>
 
     <section class="slide">
-      <header><div class="eyebrow">Approach</div><div class="slide-number">06 / 14</div></header>
+      <header><div class="eyebrow">Approach</div><div class="slide-number">06 / 15</div></header>
       <main>
         <h2>Break the problem into smaller steps</h2>
         <div class="flow">
@@ -672,7 +708,7 @@
     </section>
 
     <section class="slide">
-      <header><div class="eyebrow">Dataset and Labels</div><div class="slide-number">07 / 14</div></header>
+      <header><div class="eyebrow">Dataset and Labels</div><div class="slide-number">07 / 15</div></header>
       <main>
         <h2>Creating examples for the system</h2>
         <div class="grid-2">
@@ -698,7 +734,7 @@
     </section>
 
     <section class="slide">
-      <header><div class="eyebrow">Detection Idea</div><div class="slide-number">08 / 14</div></header>
+      <header><div class="eyebrow">Detection Idea</div><div class="slide-number">08 / 15</div></header>
       <main>
         <h2>Look for changes over time</h2>
         <div class="grid-3">
@@ -712,7 +748,7 @@
     </section>
 
     <section class="slide">
-      <header><div class="eyebrow">Simple Event Logic</div><div class="slide-number">09 / 14</div></header>
+      <header><div class="eyebrow">Simple Event Logic</div><div class="slide-number">09 / 15</div></header>
       <main>
         <h2>How we separate pickup and putdown</h2>
         <div class="grid-2">
@@ -738,9 +774,9 @@
     </section>
 
     <section class="slide">
-      <header><div class="eyebrow">Current Progress</div><div class="slide-number">10 / 14</div></header>
+      <header><div class="eyebrow">Current Progress</div><div class="slide-number">10 / 15</div></header>
       <main>
-        <h2>What is already available</h2>
+        <h2>What we achieved</h2>
         <div class="grid-2">
           <ul class="checklist panel">
             <li><span class="check">&check;</span><span>Video processing pipeline</span></li>
@@ -758,30 +794,44 @@
     </section>
 
     <section class="slide">
-      <header><div class="eyebrow">Evaluation</div><div class="slide-number">11 / 14</div></header>
+      <header><div class="eyebrow">Evaluation</div><div class="slide-number">11 / 15</div></header>
       <main>
-        <h2>How we know if the system works</h2>
+        <h2>Track A validation results</h2>
         <div class="grid-2">
           <div class="panel">
-            <h3>Questions</h3>
+            <h3>How we evaluate</h3>
             <ul>
               <li>Did system find correct event?</li>
               <li>Did it choose pickup or putdown correctly?</li>
               <li>Was predicted time close enough?</li>
             </ul>
           </div>
-          <div class="stat-grid">
-            <div class="stat"><strong>P</strong><span>Precision</span></div>
-            <div class="stat"><strong>R</strong><span>Recall</span></div>
-            <div class="stat"><strong>F1</strong><span>Balanced score</span></div>
+          <div class="panel">
+            <h3>Current Track A baseline</h3>
+            <ul>
+              <li>222 feature records</li>
+              <li>MobileNetV3 Small encoder</li>
+              <li>Small validation sets: 10 examples each</li>
+            </ul>
           </div>
         </div>
+        <div class="panel">
+          <table class="metric-table">
+            <thead>
+              <tr><th>Classifier</th><th>Train / Val</th><th>Val acc.</th><th>Bal. acc.</th><th>Macro F1</th><th>Uncertain</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Hand state</td><td>41 / 10</td><td>0.6000</td><td>0.4286</td><td>0.4286</td><td>2 / 10</td></tr>
+              <tr><td>Shelf transition</td><td>30 / 10</td><td>0.4000</td><td>0.3111</td><td>0.3556</td><td>3 / 10</td></tr>
+            </tbody>
+          </table>
+        </div>
       </main>
-      <footer><span>Compare predictions with human labels</span><div class="progress"><span></span></div><span>Evaluation</span></footer>
+      <footer><span>Early baseline metrics from train-track-a</span><div class="progress"><span></span></div><span>Evaluation</span></footer>
     </section>
 
     <section class="slide">
-      <header><div class="eyebrow">Main Challenges</div><div class="slide-number">12 / 14</div></header>
+      <header><div class="eyebrow">Main Challenges</div><div class="slide-number">12 / 15</div></header>
       <main>
         <h2>What made the project hard?</h2>
         <div class="grid-3">
@@ -794,7 +844,7 @@
     </section>
 
     <section class="slide">
-      <header><div class="eyebrow">Next Steps</div><div class="slide-number">13 / 14</div></header>
+      <header><div class="eyebrow">Next Steps</div><div class="slide-number">13 / 15</div></header>
       <main>
         <h2>How to improve the solution</h2>
         <div class="grid-2">
@@ -814,7 +864,7 @@
     </section>
 
     <section class="slide">
-      <header><div class="eyebrow">Final Takeaway</div><div class="slide-number">14 / 14</div></header>
+      <header><div class="eyebrow">Final Takeaway</div><div class="slide-number">14 / 15</div></header>
       <main>
         <h2>Event detection is more than object detection</h2>
         <div class="grid-2">
@@ -830,6 +880,20 @@
         </div>
       </main>
       <footer><span>Main deck end</span><div class="progress"><span></span></div><span>Takeaway</span></footer>
+    </section>
+
+    <section class="slide hero">
+      <video src="../resources/annotations/clip_001.h264.mp4" autoplay muted loop playsinline></video>
+      <header>
+        <div class="eyebrow">Thank you</div>
+        <div class="slide-number">15 / 15</div>
+      </header>
+      <main>
+        <div>
+          <h1>Questions and Discussion</h1>
+        </div>
+      </main>
+      <footer><span>Discussion</span><div class="progress"><span></span></div><span>Pickup & Putdown</span></footer>
     </section>
   </div>
 
