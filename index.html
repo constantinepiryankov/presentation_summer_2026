@@ -16,6 +16,7 @@
       --accent-3: #2563eb;
       --dark: #17202a;
       --warn: #ca8a04;
+      --box-padding: 30px;
       --shadow: 0 22px 70px rgba(21, 32, 43, 0.16);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
@@ -211,11 +212,22 @@
 
     .panel {
       min-width: 0;
-      padding: 24px;
+      padding: var(--box-padding);
       border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--panel);
       box-shadow: var(--shadow);
+    }
+
+    ul.panel,
+    ol.panel {
+      padding: var(--box-padding);
+      list-style-position: inside;
+    }
+
+    .panel ul,
+    .panel ol {
+      padding-left: 1.35em;
     }
 
     .flow {
@@ -264,7 +276,7 @@
     }
 
     .stat {
-      padding: 24px;
+      padding: var(--box-padding);
       border-radius: 8px;
       background: #ffffff;
       border-top: 6px solid var(--accent);
@@ -292,6 +304,10 @@
       padding: 0;
     }
 
+    .checklist.panel {
+      padding: var(--box-padding);
+    }
+
     .checklist li {
       display: grid;
       grid-template-columns: 34px minmax(0, 1fr);
@@ -315,7 +331,7 @@
     .timeline {
       display: grid;
       gap: 16px;
-      padding: 24px;
+      padding: var(--box-padding);
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #f9fbfd;
@@ -326,6 +342,22 @@
       grid-template-columns: 150px 1fr;
       gap: 16px;
       align-items: center;
+    }
+
+    .time-axis {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 16px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .time-ticks {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 4px;
     }
 
     .track-label {
@@ -595,6 +627,7 @@
           </div>
         </div>
         <div class="timeline">
+          <div class="time-axis"><div></div><div class="time-ticks"><span>0s</span><span>2s</span><span>4s</span><span>6s</span><span>8s</span></div></div>
           <div class="track"><div class="track-label">Observed action</div><div class="bar"><span class="signal-a">hand</span><span class="signal-b">item change</span></div></div>
           <div class="track"><div class="track-label">Event labels</div><div class="bar"><span class="pickup">pickup</span><span class="putdown">putdown</span></div></div>
         </div>
